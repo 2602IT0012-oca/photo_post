@@ -1,0 +1,13 @@
+<h1>ユーザ編集</h1>
+<%= form_with model: @user, url: user_path, local: true do |f| %>
+  <div>
+    <%= f.label :name, "名前" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :avatar, "アイコンの変更" %><br>
+    <%= f.file_field :avatar %>
+  </div>
+  <%= f.submit "更新する" %>
+<% end %>
+<%= link_to "マイページへ戻る", user_path %>

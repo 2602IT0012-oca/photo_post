@@ -1,0 +1,16 @@
+<h1>マイページ</h1>
+
+<p><strong>名前：</strong><%= @user.name %></p>
+<p><strong>メールアドレス：</strong><%= @user.email %></p>
+
+<p><strong>アイコン画像：</strong></p>
+<div>
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar, size: "600x600", style: "border: 1px solid #ccc;" %>
+  <% else %>
+    <%= image_tag "NoImage.png", size: "600x600", style: "border: 1px solid #ccc;" %>
+  <% end %>
+</div>
+
+<br>
+<%= link_to "編集", edit_user_path %>

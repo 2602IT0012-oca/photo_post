@@ -1,0 +1,21 @@
+<h1>投稿一覧</h1>
+
+<div class="posts-list">
+  <% @posts.each do |post| %>
+    <div class="post-item" style="margin-bottom: 30px;">
+      <!-- タイトルを押すと詳細ページ（post_path）へ遷移 -->
+      <h2><%= link_to post.title, post_path(post) %></h2>
+      
+      <!-- 一覧ページの画像サイズは 300 x 300 -->
+      <% if post.image.attached? %>
+        <div>
+          <%= image_tag post.image, size: "300x300", style: "border: 1px solid #ccc;" %>
+        </div>
+      <% end %>
+      
+      <p>投稿内容: <%= truncate(post.content, length: 30) %></p>
+      <p>投稿者: <%= post.user.name %></p>
+    </div>
+    <hr>
+  <% end %>
+</div>
